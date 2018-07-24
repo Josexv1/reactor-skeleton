@@ -1,0 +1,66 @@
+{
+  "name": "neesan",
+  "appName": "Neesan",
+  "productName": "Neesan Manga Downloader",
+  "description": "Neesan, your helpfull sister that feeds you the manga you need to survive.",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Jose Suarez <jozhee@live.com>",
+  "copyright": "© 2018. Jose Suarez",
+  "homepage": "https://github.com/Josexv1/",
+  "main": "app/background.js",
+  "build": {
+    "appId": "com.diffusive.neesan",
+    "files": [
+      "app/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "resources"
+    },
+    "publish": null
+  },
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "preunit": "webpack --config=build/webpack.unit.config.js --env=test --display=none",
+    "unit": "electron-mocha temp/specs.js --renderer --require source-map-support/register",
+    "pree2e": "webpack --config=build/webpack.app.config.js --env=test --display=none && webpack --config=build/webpack.e2e.config.js --env=test --display=none",
+    "e2e": "mocha temp/e2e.js --require source-map-support/register",
+    "test": "npm run unit && npm run e2e",
+    "start": "node build/start.js",
+    "release": "npm test && webpack --config=build/webpack.app.config.js --env=production && electron-builder"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "fs-jetpack": "^1.0.0",
+    "history": "^4.7.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.5",
+    "@babel/preset-env": "^7.0.0-beta.5",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^7.0.0-beta.3",
+    "chai": "^4.1.0",
+    "css-loader": "^1.0.0",
+    "electron": "2.0.2",
+    "electron-builder": "^20.15.1",
+    "electron-mocha": "^6.0.4",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "mocha": "^5.2.0",
+    "source-map-support": "^0.5.0",
+    "spectron": "^3.7.2",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.4",
+    "webpack-merge": "^4.1.0",
+    "webpack-node-externals": "^1.6.0"
+  }
+}

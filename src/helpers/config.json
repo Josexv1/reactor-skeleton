@@ -1,0 +1,25 @@
+{
+  "app": {
+    "width": "1080",
+    "height": "100",
+    "option": "",
+    "showHelp": true
+  },
+  "userDefined": {
+    "downloadFolder": "",
+    "downloadThreads": "",
+    "language": "English",
+    "checkNewChapterFreq": "",
+    "checkAppUpdateFreq": "",
+    "downloadExt": "",
+    "mangaFavs": {
+      "Hana Haru": ""
+    },
+    "myAnimeList": {
+      "updateMangaFreq": "",
+      "api": "",
+      "data": "",
+      "data2": ""
+    }
+  }
+}
